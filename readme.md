@@ -7,11 +7,13 @@ Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the 
 ![Gif](http://dropbox.urre.me/update-from-bottom.gif)
 
 ## Install
-1. Install plugin from WordPress plugin directory (out soon...)
+1. Install plugin from the [WordPress plugin directory](http://wordpress.org/plugins/update-from-bottom/)
 
 ## Install manually
-1. Upload the plugin to your plugins directory
-2. Activate the plugin
+1. Download [zip](https://github.com/urre/update-from-bottom/archive/master.zip) and extract
+2. Rename the folder from `update-from-bottom-master` to `update-from-bottom`
+3. Upload the plugin to your plugins directory
+4. Activate the plugin
 
 ## Uninstall
 1. Deactivate plugin
