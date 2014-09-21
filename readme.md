@@ -23,6 +23,7 @@ Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the 
 This plugin is available in the following languages:
 
 + English
++ Polish
 + Swedish
 
 ## Changelog

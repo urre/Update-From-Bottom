@@ -34,6 +34,7 @@ Contact me at hej@urre.me or at https://twitter.com/urre and hopefully I can do 
 This plugin is available in the following languages:
 
 * English
+* Polish
 * Swedish
 
 == Changelog ==
