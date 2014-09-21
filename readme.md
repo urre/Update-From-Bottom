@@ -2,9 +2,9 @@
 
 Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom. Suitable for posts and pages with a lot of meta boxes, or when edit.php just tends to get very long.
 
-![Screenshot](http://dropbox.urre.me/update-from-bottom.png)
+![Screenshot](https://dl.dropboxusercontent.com/u/1162759/update-from-bottom.png)
 
-![Gif](http://dropbox.urre.me/update-from-bottom.gif)
+![Gif](https://dl.dropboxusercontent.com/u/1162759/update-from-bottom.gif)
 
 ## Install
 1. Install plugin from the [WordPress plugin directory](http://wordpress.org/plugins/update-from-bottom/)
@@ -28,4 +28,5 @@ This plugin is available in the following languages:
 
 ## Changelog
 
-0.1 First version released
++ 1.0 No longer beta. Added Polish translation files.
++ 0.1 First version released

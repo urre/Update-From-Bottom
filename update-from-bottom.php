@@ -3,7 +3,7 @@
 Plugin Name: Update from Bottom
 Plugin URI: http://labs.urre.me
 Description: Show two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom. Suitable for posts and pages with a lot of meta boxes, or when edit.php tends to get very long.
-Version: 0.1
+Version: 1.0
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
