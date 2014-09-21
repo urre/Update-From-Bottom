@@ -4,7 +4,7 @@ Donate link: http://urre.me/donate
 Tags: fields, acf, advanced custom fields, custom fields
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.1
+Stable tag: 1.0
 
 Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom.
 
@@ -38,6 +38,9 @@ This plugin is available in the following languages:
 * Swedish
 
 == Changelog ==
+
+= 1.0 =
+No longer beta. Added Polish translation files
 
 = 0.1 =
 * First public version. It works!
