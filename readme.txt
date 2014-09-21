@@ -1,7 +1,7 @@
 === Update from Bottom ===
 Contributors: urre
 Donate link: http://urre.me/donate
-Tags: fields, acf, advanced custom fields, custom fields
+Tags: top, scroll, bottom, publish, down, scrolldown
 Requires at least: 3.0
 Tested up to: 4.0
 Stable tag: 1.0
