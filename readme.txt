@@ -3,7 +3,7 @@ Contributors: urre
 Donate link: http://urre.me/donate
 Tags: fields, acf, advanced custom fields, custom fields
 Requires at least: 3.0
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: 0.1
 
 Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom.
