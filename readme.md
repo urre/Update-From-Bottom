@@ -28,5 +28,7 @@ This plugin is available in the following languages:
 
 ## Changelog
 
-+ 1.0 No longer beta. Added Polish translation files.
-+ 0.1 First version released
++ 1.0.2: Bug fix. Buttons showed up on more screens than needed. Now only posts and pages
++ 1.0.1: Bug fix. Hide buttons on main dashboard page
++ 1.0: No longer beta. Added Polish translation files.
++ 0.1: First version released!
