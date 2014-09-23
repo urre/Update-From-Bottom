@@ -48,38 +48,36 @@ class UpdatefromBottom {
 
     public function register_admin_styles() {
 
-        # Don't show buttons on main dashboard page, i.e enqueue any styles
-        if( 'index.php' == $hook )
-               return;
-
-        if (is_admin()) {
+		// Where are we?
+		$screen = get_current_screen();
+		
+		// Enqueue style on post ( any post type including custom ) new / edit screens only
+        if ( 'post' == $screen->base ) 
             wp_enqueue_style( 'updatefrombottom-plugin-styles', plugins_url( 'update-from-bottom/css/update-from-bottom.admin.css' ) );
-        }
     }
 
     public function register_admin_scripts() {
 
-        # Don't show buttons on main dashboard page, i.e enqueue any scripts
-        if( 'index.php' == $hook )
-               return;
+		// Where are we?
+		$screen = get_current_screen();
 
-        # Enqueue script
-        wp_enqueue_script( 'updatefrombottom-admin-script', plugins_url( 'update-from-bottom/js/update-from-bottom.admin.js' ), array('jquery') );
+		// Enqueue script on post ( any post type including custom ) new / edit screens only
+        if ( 'post' == $screen->base ) {
+			wp_enqueue_script( 'updatefrombottom-admin-script', plugins_url( 'update-from-bottom/js/update-from-bottom.admin.js' ), array('jquery') );
 
-        # Localize strings to js
-        $js_data = array(
-            'update'     => __( 'Update', 'updatefrombottom' ),
-            'publish'    => __( 'Publish', 'updatefrombottom' ),
-            'publishing' => __( 'Publishing...', 'updatefrombottom' ),
-            'updating'   => __( 'Updating...', 'updatefrombottom' ),
-            'totop'      => __( 'To top', 'updatefrombottom' ),
-        );
+			# Localize strings to js
+			$js_data = array(
+				'update'     => __( 'Update', 'updatefrombottom' ),
+				'publish'    => __( 'Publish', 'updatefrombottom' ),
+				'publishing' => __( 'Publishing...', 'updatefrombottom' ),
+				'updating'   => __( 'Updating...', 'updatefrombottom' ),
+				'totop'      => __( 'To top', 'updatefrombottom' ),
+			);
 
-        wp_localize_script('updatefrombottom-admin-script', 'updatefrombottomParams', $js_data);
-
+			wp_localize_script('updatefrombottom-admin-script', 'updatefrombottomParams', $js_data);
+		}
     }
-
-
 }
 
-$ufb = new UpdatefromBottom();
+if ( is_admin() )
+	$ufb = new UpdatefromBottom();
