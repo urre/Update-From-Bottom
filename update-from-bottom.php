@@ -3,13 +3,28 @@
 Plugin Name: Update from Bottom
 Plugin URI: http://labs.urre.me
 Description: Show two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom. Suitable for posts and pages with a lot of meta boxes, or when edit.php tends to get very long.
-Version: 1.0
+Version: 1.0.1
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
 License: GPL2
 */
 
+/*  Copyright 2104 Urban Sanden (email: hej@urre.me)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License, version 2, as
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
 
 class UpdatefromBottom {
 
@@ -32,12 +47,21 @@ class UpdatefromBottom {
     }
 
     public function register_admin_styles() {
+
+        # Don't show buttons on main dashboard page, i.e enqueue any styles
+        if( 'index.php' == $hook )
+               return;
+
         if (is_admin()) {
             wp_enqueue_style( 'updatefrombottom-plugin-styles', plugins_url( 'update-from-bottom/css/update-from-bottom.admin.css' ) );
         }
     }
 
     public function register_admin_scripts() {
+
+        # Don't show buttons on main dashboard page, i.e enqueue any scripts
+        if( 'index.php' == $hook )
+               return;
 
         # Enqueue script
         wp_enqueue_script( 'updatefrombottom-admin-script', plugins_url( 'update-from-bottom/js/update-from-bottom.admin.js' ), array('jquery') );
