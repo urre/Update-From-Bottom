@@ -4,7 +4,7 @@ Donate link: http://urre.me/donate
 Tags: top, scroll, bottom, publish, down, scrolldown
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom.
 
@@ -38,6 +38,9 @@ This plugin is available in the following languages:
 * Swedish
 
 == Changelog ==
+
+= 1.0.2 =
+Bug fix. Buttons showed up on more screens than needed. Now only posts and pages
 
 = 1.0.1 =
 Bug fix. Hide buttons on main dashboard page
