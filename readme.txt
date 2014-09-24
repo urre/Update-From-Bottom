@@ -2,7 +2,7 @@
 Contributors: urre
 Donate link: http://urre.me/donate
 Tags: top, scroll, bottom, publish, down, scrolldown
-Requires at least: 3.0
+Requires at least: 3.3
 Tested up to: 4.0
 Stable tag: 1.0.2
 
