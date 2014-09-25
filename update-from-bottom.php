@@ -84,17 +84,6 @@ class UpdatefromBottom {
     }
 }
 
-# Disallow activation if WordPress version < 3.3
-if ( version_compare( $wp_version, '3.3', '<' ) ) :
-	wp_die( '<center>Cannot activate! <strong>Update from Bottom</strong> plugin ' . 
-			'requires WordPress version <strong>3.3 or higher</strong>!<br />&nbsp;<br />' . 
-			'<a style="border: solid 1px #000; padding: 5px 20px ' . 
-			'5px 20px; border-radius: 10px; -moz-border-radius: 10px; ' . 
-			'-webkit-border-radius: 10px; text-decoration: none; color: black; ' . 
-			'background-color: cyan;" href="/wp-admin/plugins.php" title="Go back to Installed plugins">' . 
-			'Back</a></center>' );
-endif;
-
 # Only use in wp-admin
 if (is_admin()):
 	$ufb = new UpdatefromBottom();
