@@ -10,7 +10,7 @@
 			$('<div id="updatefrombottom"><a class="button button-totop">'+updatefrombottomParams.totop+'</a><a class="button button-primary button-large">'+updatefrombottomParams.update+'</a></div>').appendTo("#wpbody-content");
 		}
 
-		// Elements
+		// DOM Caching
 		var elements =  {
 			box    : $('#updatefrombottom'),
 			heart  : $('#jsc-heart'),

@@ -2,9 +2,9 @@
 Contributors: urre
 Donate link: http://urre.me/donate
 Tags: top, scroll, bottom, publish, down, scrolldown
-Requires at least: 3.3
+Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom.
 
@@ -38,6 +38,9 @@ This plugin is available in the following languages:
 * Swedish
 
 == Changelog ==
+
+= 1.0.3 =
+Small change. WordPress version 3.1 no longer a requirement. Minor changes to button box alignment.
 
 = 1.0.2 =
 Bug fix. Buttons showed up on more screens than needed. Now only posts and pages

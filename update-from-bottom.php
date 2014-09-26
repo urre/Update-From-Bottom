@@ -3,7 +3,7 @@
 Plugin Name: Update from Bottom
 Plugin URI: http://labs.urre.me
 Description: Show two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom. Suitable for posts and pages with a lot of meta boxes, or when edit.php tends to get very long.
-Version: 1.0.2
+Version: 1.0.3
 Author: Urban Sanden
 Author URI: http://urre.me
 Author Email: hej@urre.me
@@ -26,11 +26,9 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-global $wp_version;
-
 class UpdatefromBottom {
 
-    function __construct() {
+      function __construct() {
 
         # Load plugin text domain
         add_action( 'init', array( $this, 'plugin_textdomain' ) );
@@ -42,33 +40,46 @@ class UpdatefromBottom {
     }
 
     public function plugin_textdomain() {
+
         $domain = 'updatefrombottom';
         $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
         load_textdomain( $domain, WP_LANG_DIR.'/'.$domain.'/'.$domain.'-'.$locale.'.mo' );
         load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+
+    }
+
+    public function x_get_current_post_type() {
+
+        global $post, $typenow, $pagenow;
+
+        if( $post && $post->post_type && $pagenow == 'post.php') :
+            $post_type = $post->post_type;
+        else :
+            return false;
+        endif;
+
+        return $post_type;
     }
 
     public function register_admin_styles() {
 
-		# Where are we?
-		$screen = get_current_screen();
+        # Only load css we are are editing a post (build in or custom post type) or page
+        if($this->x_get_current_post_type()) :
 
-		# Enqueue style on post ( any post type including custom ) new / edit screens only
-        if ('post' == $screen->base):
             wp_enqueue_style( 'updatefrombottom-plugin-styles', plugins_url( 'update-from-bottom/css/update-from-bottom.admin.css' ) );
+
         endif;
+
     }
 
     public function register_admin_scripts() {
 
-		# Where are we?
-		$screen = get_current_screen();
+        # Only load js if we are are editing a post (build in or custom post type) or page
+        if($this->x_get_current_post_type()) :
 
-		# Enqueue script on post ( any post type including custom ) new / edit screens only
-        if ('post' == $screen->base) :
 			wp_enqueue_script( 'updatefrombottom-admin-script', plugins_url( 'update-from-bottom/js/update-from-bottom.admin.js' ), array('jquery') );
 
-			# UI strings
+			# Translatable trings
 			$js_data = array(
 				'update'     => __( 'Update', 'updatefrombottom' ),
 				'publish'    => __( 'Publish', 'updatefrombottom' ),
@@ -81,6 +92,7 @@ class UpdatefromBottom {
 			wp_localize_script('updatefrombottom-admin-script', 'updatefrombottomParams', $js_data);
 
         endif;
+
     }
 }
 
