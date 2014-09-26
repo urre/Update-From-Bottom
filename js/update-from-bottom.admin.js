@@ -48,7 +48,7 @@
 
 		// Check if we are near bottom, show box
 		$(window).scroll(function(){
-			if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+			if($(window).scrollTop() + $(window).height() > $(document).height() - 40) {
 				elements.box.show();
 
 			} else {
