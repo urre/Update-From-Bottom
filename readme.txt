@@ -3,7 +3,7 @@ Contributors: urre
 Donate link: http://urre.me/donate
 Tags: top, scroll, bottom, publish, down, scrolldown
 Requires at least: 3.0
-Tested up to: 4.2
+Tested up to: 4.2.2
 Stable tag: 1.0.3
 
 Shows two extra buttons (Scroll to top and Publish/Update) in the bottom of the screen when user scrolls near bottom.
