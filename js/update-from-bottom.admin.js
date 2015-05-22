@@ -1,72 +1,122 @@
 (function ($) {
-	"use strict";
 
-	$(window).load( function() {
+    'use strict';
 
-		// Button markup depending on post/page status
-		if($('#publish').val() == updatefrombottomParams.publish) {
-			$('<div id="updatefrombottom"><a class="button button-totop">'+updatefrombottomParams.totop+'</a><a class="button button-primary button-large">'+updatefrombottomParams.publish+'</a></div>').appendTo("#wpbody-content");
-		} else {
-			$('<div id="updatefrombottom"><a class="button button-totop">'+updatefrombottomParams.totop+'</a><a class="button button-primary button-large">'+updatefrombottomParams.update+'</a></div>').appendTo("#wpbody-content");
-		}
+    var UpdateFromBottom = {
 
-		// DOM Caching
-		var elements =  {
-			box    : $('#updatefrombottom'),
-			heart  : $('#jsc-heart'),
-			update  : $('#updatefrombottom .button-primary'),
-			publish: $('#publish'),
-			totop : $('#updatefrombottom .button-totop')
-		}
+    	// Settings
+    	settings :  {
+    		box    : null,
+    		heart  : null,
+    		update  : null,
+    		publish: null,
+    		totop : null,
+    	},
 
-		// Publish/Update content
-		elements.update.on('click', function(e){
+        publish: function() {
 
-			if($(this).text() == updatefrombottomParams.publish) {
-				$(this).text(updatefrombottomParams.publishing);
-				setTimeout(function() {
-					$(this).text(updatefrombottomParams.publish);
-				}, 2000);
-			} else {
-				$(this).text(updatefrombottomParams.updating);
-				setTimeout(function() {
-					$(this).text(updatefrombottomParams.update);
-				}, 2000);
-			}
+        	// Publish/Update content
+        	UpdateFromBottom.settings.update.on('click', function(e){
 
-			elements.publish.trigger('click');
+        		if($(this).text() == updatefrombottomParams.publish) {
+        			$(this).text(updatefrombottomParams.publishing);
+        			setTimeout(function() {
+        				$(this).text(updatefrombottomParams.publish);
+        			}, 2000);
+        		} else {
+        			$(this).text(updatefrombottomParams.updating);
+        			setTimeout(function() {
+        				$(this).text(updatefrombottomParams.update);
+        			}, 2000);
+        		}
 
-			e.preventDefault();
+        		UpdateFromBottom.settings.publish.trigger('click');
 
-		});
+        		e.preventDefault();
 
-		// Scroll to top
-		elements.totop.on('click', function(event){
-			event.preventDefault();
-			$('html, body').animate({scrollTop : 0}, 600);
-		});
+        	});
+        },
 
-		// Check if we are near bottom, show box
-		$(window).scroll(function(){
-			if($(window).scrollTop() + $(window).height() > $(document).height() - 40) {
-				elements.box.show();
+        scrollToTop: function() {
 
-			} else {
-				elements.box.hide();
-			}
-		});
+        	// Scroll to top
+        	UpdateFromBottom.settings.totop.on('click', function(event){
+        		event.preventDefault();
+        		$('html, body').animate({scrollTop : 0}, 600);
+        	});
 
-		// Show box on wide screens
-		$(window).on('resize', function() {
+        },
 
-			if($(window).width() > 900 && $(window).height() > 1000) {
-				elements.box.show();
-			} else {
-				elements.box.hide();
-			}
+        showBox: function() {
 
-		});
+        	// Show box if near bottom
+        	if(($(window).scrollTop() + $(window).height()) > ($(document).height() - 40)) {
+        		UpdateFromBottom.settings.box.show();
+        	} else {
+        		UpdateFromBottom.settings.box.hide();
+        	}
+        },
 
-	});
+        showBoxOnWide: function() {
+
+        	// Show box if neccessary
+        	if($(window).width() > 900 && $(window).height() > 1000) {
+        		UpdateFromBottom.settings.box.show();
+        	} else {
+        		UpdateFromBottom.settings.box.hide();
+        	}
+
+        },
+
+        AlternateMarkup: function() {
+        	// Button markup depending on post/page status
+        	if($('#updatefrombottom .button-primary').val() == updatefrombottomParams.publish) {
+        		$('<div id="updatefrombottom"><a class="button button-totop">'+updatefrombottomParams.totop+'</a><a class="button button-primary button-large">'+updatefrombottomParams.publish+'</a></div>').appendTo("#wpbody-content");
+        	} else {
+        		$('<div id="updatefrombottom"><a class="button button-totop">'+updatefrombottomParams.totop+'</a><a class="button button-primary button-large">'+updatefrombottomParams.update+'</a></div>').appendTo("#wpbody-content");
+        	}
+
+        	// Store selectors to settings
+        	UpdateFromBottom.settings.box = $('#updatefrombottom');
+        	UpdateFromBottom.settings.heart = $('#jsc-heart');
+        	UpdateFromBottom.settings.update =  $('#updatefrombottom .button-primary');
+        	UpdateFromBottom.settings.publish = $('#publish');
+        	UpdateFromBottom.settings.totop = $('#updatefrombottom .button-totop');
+
+
+        }
+
+    }
+
+    $(window).load(function() {
+
+    	// Alternate markup
+    	UpdateFromBottom.AlternateMarkup();
+
+	   	setTimeout(function() {
+
+		   	// Scroll to top
+	    	UpdateFromBottom.scrollToTop();
+	    	 	    
+	    	 // Publish/Update
+	    	 UpdateFromBottom.publish();
+
+	   	}, 1000);
+
+    });
+
+    $(window).scroll(function() {
+
+    	// Check if we are near bottom, show box	
+    	UpdateFromBottom.showBox();
+
+    });
+
+    $(window).on('resize', function() {
+    	
+    	// Show box on wide screens
+    	UpdateFromBottom.showBoxOnWide();
+
+    });
 
 }(jQuery));
