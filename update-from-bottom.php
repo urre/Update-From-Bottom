@@ -100,3 +100,5 @@ class UpdatefromBottom {
 if (is_admin()):
 	$ufb = new UpdatefromBottom();
 endif;
+
+?>
